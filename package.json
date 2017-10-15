@@ -1,0 +1,22 @@
+{
+  "name": "botkit-fb-ui",
+  "version": "0.0.1",
+  "description": "Facebook Messenger UI components wrapped for Botkit",
+  "main": "dist/botkit-fb-ui.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedrorocha-net/botkit-fb-ui.git"
+  },
+  "keywords": [
+    "Botkit",
+    "Node.js",
+    "FB",
+    "Messenger"
+  ],
+  "author": "Pedro Rocha <pedrogomesrocha@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pedrorocha-net/botkit-fb-ui/issues"
+  },
+  "homepage": "https://github.com/pedrorocha-net/botkit-fb-ui#readme"
+}
