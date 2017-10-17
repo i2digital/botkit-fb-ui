@@ -43,7 +43,7 @@ exports.button = function (params) {
   return Widget;
 };
 
-exports.generic_template = () => {
+exports.genericTemplate = () => {
 
   const URL_BUTTON = 'web_url',
     POSTBACK_BUTTON = 'postback';
@@ -111,6 +111,34 @@ exports.linkedImage = (params) => {
     },
     getMessage: function () {
       return Widget.message;
+    }
+  };
+  return Widget;
+
+};
+
+exports.quickReply = function (params) {
+
+  let Widget = {
+    message: {
+      text: params.text,
+      quick_replies: []
+    },
+    getMessage: function () {
+      return Widget.message;
+    },
+    addQuickReply: function (params) {
+      let quick_reply = {
+        content_type: params.contentType,
+        title: params.title,
+        payload: params.payload
+      };
+      Widget.message.quick_replies.push(quick_reply);
+    },
+    cleanReplies: ()=> {
+      if (Widget.message.quick_replies.length != 0) {
+        Widget.message.quick_replies = [];
+      }
     }
   };
   return Widget;
