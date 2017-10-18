@@ -1,4 +1,4 @@
-module.exports = (params) => {
+exports.image = (params) => {
 
   const Widget = {
     message: {

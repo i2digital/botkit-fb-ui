@@ -1,4 +1,4 @@
-module.exports = function (params) {
+exports.quickReply = function (params) {
 
   let Widget = {
     message: {

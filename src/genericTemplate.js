@@ -1,4 +1,4 @@
-module.exports = () => {
+exports.genericTemplate = () => {
 
   const URL_BUTTON = 'web_url',
     POSTBACK_BUTTON = 'postback';
@@ -35,14 +35,14 @@ module.exports = () => {
           type: params.type,
           url: params.url,
           title: params.title
-        }
+        };
       }
       else if (params.type === POSTBACK_BUTTON) {
         newButton = {
           type: params.type,
           title: params.title,
           payload: params.payload
-        }
+        };
       }
       Widget.message.attachment.payload.elements[params.elementIndex].buttons.push(newButton);
     }
