@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/pedrorocha-net/botkit-fb-ui/issues"
   },
-  "homepage": "https://github.com/pedrorocha-net/botkit-fb-ui#readme"
+  "homepage": "https://github.com/pedrorocha-net/botkit-fb-ui#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^4.0.0",
+    "gulp-load-plugins": "^1.5.0"
+  }
 }
