@@ -26,7 +26,10 @@ exports.button = function (params) {
         newButton = {
           type: params.type,
           url: params.url,
-          title: params.title
+          title: params.title,
+          webview_height_ratio: params.height,
+          messenger_extensions: params.msgExtEnabled,
+          fallback_url: params.fallbackUrl,
         };
       }
       else if (params.type === POSTBACK_BUTTON) {
