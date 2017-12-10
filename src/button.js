@@ -1,43 +1,37 @@
-exports.button = function (params) {
-
-  const URL_BUTTON = 'web_url',
-    POSTBACK_BUTTON = 'postback';
-
-  let Widget = {
+exports.button = (params) => {
+  const Widget = {
 
     message: {
       attachment: {
-        type: "template",
+        type: 'template',
         payload: {
-          template_type: "button",
-          text: params.messageText,
-          buttons: []
-        }
-      }
+          template_type: 'button',
+          text: params.text,
+          buttons: [],
+        },
+      },
     },
 
-    getMessage: function () {
-      return Widget.message;
-    },
+    getMessage: () => Widget.message,
 
-    addButton: (params) => {
+    addButton: (qrParams) => {
       let newButton;
-      if (params.type === URL_BUTTON) {
+      if (qrParams.type === 'web_url') {
         newButton = {
-          type: params.type,
-          url: params.url,
-          title: params.title
+          type: qrParams.type,
+          url: qrParams.url,
+          title: qrParams.title,
         };
       }
-      else if (params.type === POSTBACK_BUTTON) {
+      else if (qrParams.type === 'postback') {
         newButton = {
-          type: params.type,
-          title: params.title,
-          payload: params.payload
+          type: qrParams.type,
+          title: qrParams.title,
+          payload: qrParams.payload,
         };
       }
       Widget.message.attachment.payload.buttons.push(newButton);
-    }
+    },
   };
 
   return Widget;

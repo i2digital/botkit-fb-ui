@@ -1,27 +1,29 @@
-exports.quickReply = function (params) {
+exports.quickReply = (params) => {
+  const Widget = {
 
-  let Widget = {
     message: {
       text: params.text,
-      quick_replies: []
+      quick_replies: [],
     },
-    getMessage: function () {
-      return Widget.message;
-    },
-    addQuickReply: function (params) {
-      let quick_reply = {
-        content_type: params.contentType,
-        title: params.title,
-        payload: params.payload
+
+    getMessage: () => Widget.message,
+
+    addQuickReply: (qrParams) => {
+      const quickReply = {
+        content_type: qrParams.contentType,
+        title: qrParams.title,
+        payload: qrParams.payload,
       };
-      Widget.message.quick_replies.push(quick_reply);
+      Widget.message.quick_replies.push(quickReply);
     },
-    cleanReplies: ()=> {
-      if (Widget.message.quick_replies.length != 0) {
+
+    cleanReplies: () => {
+      if (Widget.message.quick_replies.length !== 0) {
         Widget.message.quick_replies = [];
       }
-    }
-  };
-  return Widget;
+    },
 
+  };
+
+  return Widget;
 };

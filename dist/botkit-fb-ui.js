@@ -1,143 +1,139 @@
-exports.button = function (params) {
-
-  const URL_BUTTON = 'web_url',
-    POSTBACK_BUTTON = 'postback';
-
-  let Widget = {
+exports.button = (params) => {
+  const Widget = {
 
     message: {
       attachment: {
-        type: "template",
+        type: 'template',
         payload: {
-          template_type: "button",
-          text: params.messageText,
-          buttons: []
-        }
-      }
+          template_type: 'button',
+          text: params.text,
+          buttons: [],
+        },
+      },
     },
 
-    getMessage: function () {
-      return Widget.message;
-    },
+    getMessage: () => Widget.message,
 
-    addButton: (params) => {
+    addButton: (qrParams) => {
       let newButton;
-      if (params.type === URL_BUTTON) {
+      if (qrParams.type === 'web_url') {
         newButton = {
-          type: params.type,
-          url: params.url,
-          title: params.title
+          type: qrParams.type,
+          url: qrParams.url,
+          title: qrParams.title,
         };
       }
-      else if (params.type === POSTBACK_BUTTON) {
+      else if (qrParams.type === 'postback') {
         newButton = {
-          type: params.type,
-          title: params.title,
-          payload: params.payload
+          type: qrParams.type,
+          title: qrParams.title,
+          payload: qrParams.payload,
         };
       }
       Widget.message.attachment.payload.buttons.push(newButton);
-    }
+    },
   };
 
   return Widget;
 };
+
 exports.genericTemplate = () => {
-
-  const URL_BUTTON = 'web_url',
-    POSTBACK_BUTTON = 'postback';
-
   const Widget = {
+
     message: {
       attachment: {
-        type: "template",
+        type: 'template',
         payload: {
-          template_type: "generic",
-          elements: []
-        }
-      }
+          template_type: 'generic',
+          elements: [],
+        },
+      },
     },
 
-    getMessage: () => {
-      return Widget.message;
-    },
+    getMessage: () => Widget.message,
 
     addElement: (params) => {
       const newElement = {
         title: params.title,
         image_url: params.imageUrl,
         subtitle: params.subtitle,
-        buttons: []
+        buttons: [],
       };
       Widget.message.attachment.payload.elements.push(newElement);
     },
 
     addButton: (params) => {
       let newButton;
-      if (params.type === URL_BUTTON) {
+      if (params.type === 'web_url') {
         newButton = {
           type: params.type,
           url: params.url,
-          title: params.title
+          title: params.title,
         };
       }
-      else if (params.type === POSTBACK_BUTTON) {
+      else if (params.type === 'postback') {
         newButton = {
           type: params.type,
           title: params.title,
-          payload: params.payload
+          payload: params.payload,
         };
       }
       Widget.message.attachment.payload.elements[params.elementIndex].buttons.push(newButton);
-    }
+    },
+
   };
+
   return Widget;
 };
-exports.image = (params) => {
 
+exports.image = (params) => {
   const Widget = {
+
     message: {
       attachment: {
-        type: "template",
+        type: 'template',
         payload: {
-          template_type: "generic",
+          template_type: 'generic',
           elements: {
-            element: params
-          }
-        }
-      }
+            element: params,
+          },
+        },
+      },
     },
-    getMessage: function () {
-      return Widget.message;
-    }
+
+    getMessage: () => Widget.message,
+
   };
+
   return Widget;
-
 };
-exports.quickReply = function (params) {
 
-  let Widget = {
+exports.quickReply = (params) => {
+  const Widget = {
+
     message: {
       text: params.text,
-      quick_replies: []
+      quick_replies: [],
     },
-    getMessage: function () {
-      return Widget.message;
-    },
-    addQuickReply: function (params) {
-      let quick_reply = {
-        content_type: params.contentType,
-        title: params.title,
-        payload: params.payload
+
+    getMessage: () => Widget.message,
+
+    addQuickReply: (qrParams) => {
+      const quickReply = {
+        content_type: qrParams.contentType,
+        title: qrParams.title,
+        payload: qrParams.payload,
       };
-      Widget.message.quick_replies.push(quick_reply);
+      Widget.message.quick_replies.push(quickReply);
     },
-    cleanReplies: ()=> {
-      if (Widget.message.quick_replies.length != 0) {
+
+    cleanReplies: () => {
+      if (Widget.message.quick_replies.length !== 0) {
         Widget.message.quick_replies = [];
       }
-    }
-  };
-  return Widget;
+    },
 
+  };
+
+  return Widget;
 };

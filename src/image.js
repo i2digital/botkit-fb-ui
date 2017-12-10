@@ -1,21 +1,21 @@
 exports.image = (params) => {
-
   const Widget = {
+
     message: {
       attachment: {
-        type: "template",
+        type: 'template',
         payload: {
-          template_type: "generic",
+          template_type: 'generic',
           elements: {
-            element: params
-          }
-        }
-      }
+            element: params,
+          },
+        },
+      },
     },
-    getMessage: function () {
-      return Widget.message;
-    }
-  };
-  return Widget;
 
+    getMessage: () => Widget.message,
+
+  };
+
+  return Widget;
 };
