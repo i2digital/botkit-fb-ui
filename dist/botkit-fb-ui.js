@@ -21,6 +21,9 @@ exports.button = (params) => {
           type: qrParams.type,
           url: qrParams.url,
           title: qrParams.title,
+          webview_height_ratio: qrParams.height,
+          messenger_extensions: qrParams.msgExtEnabled,
+          fallback_url: qrParams.fallbackUrl,
         };
       }
       else if (qrParams.type === 'postback') {
